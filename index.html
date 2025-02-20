@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Web</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,0,0" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Header con Navegación -->
+    <header class="header">
+        <a>
+            <img src="img/logo.png" alt="Logo" id="header-logo">
+        </a>
+
+        <span class="material-symbols-outlined" id="menu">
+            menu
+        </span>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="#comunicacion">Comunicación Visual</a></li>
+                <li><a href="#expresiva">Representación Expresiva</a></li>
+                <li><a href="#editorial">Diseño <br> Editorial</a></li>
+                <li><a href="#impresion">Técnicas de Impresión</a></li>
+                <li><a href="#web">Diseño <br> Web</a></li>
+                <li><a href="#identidad">Diseño de Identidad</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Logo Animado al Inicio -->
+        <div class="logo-container">
+            <img src="img/logo.png" alt="Logo" class="logo">
+        </div>
+
+        <!-- Banner con Video -->
+        <section class="banner">
+            <video autoplay muted loop class="video desktop">
+                <source src="videos/Desktop.mp4" type="video/mp4">
+            </video>
+            <video autoplay muted loop class="video tablet">
+                <source src="videos/Tablet.mp4" type="video/mp4">
+            </video>
+            <video autoplay muted loop class="video mobile">
+                <source src="videos/mobile.mp4" type="video/mp4">
+            </video>
+        </section>
+
+        <!-- Secciones -->
+        <section id="comunicacion" class="section color1">
+            <h1>Comunicación Visual</h1>
+            <div class="video-container">
+                <video autoplay muted loop class="video-horizontal">
+                    <source src="videos/Collage.mp4" type="video/mp4">
+                </video>
+                <div class="video-info">
+                    <h2>Comunicación Visual</h2>
+                    <p>Exploramos el impacto del collage en la comunicación visual.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="expresiva" class="section color2">
+            <h1>Representación Expresiva</h1>
+            <div class="video-container">
+                <video autoplay muted loop id="unico" class="video-vertical">
+                    <source src="videos/Video dibujo.mp4" type="video/mp4">
+                </video>
+                <div class="video-info">
+                    <h2>Representación Expresiva</h2>
+                    <p>La expresión artística en el diseño gráfico a través del dibujo.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="editorial" class="section color3">
+            <h1>Diseño Editorial</h1>
+            <div class="video-container">
+                <video autoplay muted loop class="video-horizontal">
+                    <source src="videos/Revista Animada.mp4" type="video/mp4">
+                </video>
+                <div class="video-info">
+                    <h2>Diseño Editorial</h2>
+                    <p>Animación de revistas para una experiencia digital inmersiva.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="impresion" class="section color4">
+            <h1>Técnicas de Impresión</h1>
+            <div class="video-container">
+                <video autoplay muted loop class="video-horizontal">
+                    <source src="videos/Revista Animada.mp4" type="video/mp4">
+                </video>
+                <div class="video-info">
+                    <h2>Técnicas de Impresión</h2>
+                    <p>Exploración de métodos tradicionales y modernos en impresión.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="web" class="section color5">
+            <h1>Diseño Web</h1>
+            <div class="fila">
+                <div class="video-container">
+                    <video autoplay muted loop class="video-vertical">
+                        <source src="videos/Animacion Cervezas.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-info">
+                        <h2>Animación de Cervezas</h2>
+                        <p>Presentación animada de etiquetas para cervezas artesanales.</p>
+                    </div>
+                </div>
+                <div class="video-container">
+                    <video autoplay muted loop class="video-vertical">
+                        <source src="videos/Rare Beuty.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-info">
+                        <h2>Rare Beauty</h2>
+                        <p>Concepto visual y animación para una marca de belleza.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="identidad" class="section color6">
+            <h1>Diseño de Identidad</h1>
+            <div class="video-container">
+                <video autoplay muted loop class="video-horizontal">
+                    <source src="videos/Animacion de logo.mp4" type="video/mp4">
+                </video>
+                <div class="video-info">
+                    <h2>Diseño de Identidad</h2>
+                    <p>Creación y animación de logotipos para marcas innovadoras.</p>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                setTimeout(() => {
+                    document.body.classList.add("show-content");
+                }, 2000); // Se muestra el contenido después de la animación del logo
+            });
+
+            document.querySelectorAll("video").forEach(video => {
+                video.addEventListener("mouseenter", () => video.pause());
+                video.addEventListener("mouseleave", () => video.play());
+            });
+
+            window.addEventListener("load", () => {
+                window.scrollTo(0, 0);
+            });
+        </script>
+    </main>
+    <footer>
+        <p>
+            Milena González (299834) <br>
+            Carpeta Anual 2 <br>
+            Licenciatura en Diseño Gráfico
+        </p>
+    </footer>
+</body>
+
+</html>

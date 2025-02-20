@@ -1,0 +1,356 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", serif;
+    font-weight: 600;
+    font-style: italic;
+}
+
+body {
+    background: #fff;
+    overflow-x: hidden;
+}
+
+h1{
+    font-size: 1em;
+    margin-bottom: 1em;
+}
+
+h2{
+    font-size: 0.8em;
+}
+
+p{
+    font-size: 0.5em;
+    font-weight: 400;
+    margin-top: 0.5em;
+}
+
+.color1 { background: #91766d; }
+.color2 { background: #a5745e; }
+.color3 { background: #bfa388; }
+.color4 { background: #afae94; }
+.color5 { background: #868567; }
+.color6 { background: #6b6859; }
+
+/* HEADER */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #333;
+    padding: 0.5em 1em;
+    display:flex;
+    align-items:center;
+    z-index: 50;
+    font-size: 1em;
+    justify-content: space-between;
+}
+
+#header-logo{
+    width: 5em;
+}
+
+.material-symbols-outlined{
+    color: white;
+    font-size: 2.5em;
+}
+
+nav {
+    display: none;
+    justify-content: space-between;
+}
+
+/* ANIMACIÓN DEL LOGO */
+.logo-container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    z-index: 100;
+}
+
+.logo {
+    width: 200px;
+    animation: spin 1s linear forwards, moveLogo 1s ease-in-out 1s forwards;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes moveLogo {
+    0% { transform: scale(1) translate(0, 0); }
+    100% { 
+        transform: scale(0.4) translate(-90vw, -110vh);
+    }
+}
+
+.logo-container {
+    animation: fadeOut 0.5s ease-in-out 2s forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+}
+
+body.show-content .header-logo {
+    opacity: 1;
+}
+
+/* BANNER */
+.banner {
+    width: 100%;
+    height: auto;
+    background: black;
+    display: none;
+}
+
+.video {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*SECCIONES*/
+.section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 1em 2em;
+}
+
+.video-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    border-radius: 0.5em;
+    overflow: hidden;
+}
+
+.video-container:hover video {
+    filter: brightness(30%);
+}
+
+.video-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+    max-width: 400px;
+}
+
+.video-container:hover .video-info {
+    opacity: 1;
+}
+
+.video-horizontal {
+    width: 100%;
+    border-radius: 0.5em;
+}
+.video-vertical {
+    width: 100%;
+    border-radius: 0.5em;
+}
+
+.fila {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+/* MOSTRAR CONTENIDO */
+body.show-content .header {
+    display: flex;
+}
+
+body.show-content .banner {
+    display: block;
+}
+
+body.show-content .section {
+    display: flex;
+}
+
+/* ANIMACIÓN PARA APARECER EL MENÚ */
+body.show-content .nav ul li {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(0.2s * var(--i));
+}
+
+footer{
+    width: 100%;
+    height: 8em;
+    background-color: #333;
+    font-size: 0.5em;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+
+@media (max-width: 767px) {  /* Mobile */
+    .mobile { display: block; }
+}
+
+@media all and (min-width: 768px) {
+ 
+    h1{
+        font-size: 1em;
+        margin-bottom: 1em;
+    }
+    
+    h2{
+        font-size: 1.5em;
+    }
+    
+    p{
+        font-size: 1em;
+        font-weight: 400;
+        margin-top: 0.5em;
+    }
+
+    @keyframes moveLogo {
+        0% { transform: scale(1) translate(0, 0); }
+        100% { transform: scale(0.4) translate(-108vw, -105vh); }
+    }
+
+    .tablet { 
+        display: block; 
+    }
+
+    .section{
+        padding: 3em;
+    }
+
+    .video-vertical {
+        width: 90%;
+        border-radius: 0.5em;
+    } 
+    
+    #unico{
+        width: 60%;
+    }
+}
+
+@media all and (min-width:1200px) {
+   
+    #menu{
+        display: none;
+    }
+
+    h1{
+        font-size: 1.5em;
+    }
+
+    .header{
+        height: 6em;
+    }
+     
+    nav {
+        display: block; /* Asegura que los enlaces sean elementos de bloque */
+    }
+
+    .nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: right;
+        gap: 2em;
+    }
+    
+    .nav ul li {
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    
+    .nav ul li a {
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        font-size: 1em;
+        width: 10em;
+        padding: 0 1em;
+        position: relative; 
+        transition: transform 0.2s ease-out, font-weight 0.2s ease-out;
+        text-align: center;
+    }
+    
+    .nav ul li a::after {
+        content: attr(data-text);
+        font-weight: bold;
+        visibility: hidden;
+        height: 0;
+        overflow: hidden;
+        position: absolute;
+    }
+    
+    .nav ul li a::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -3px;
+        width: 0;
+        height: 2px;
+        background: white;
+        transition: width 0.3s ease-out, left 0.3s ease-out;
+    }
+    
+    .nav ul li a:hover {
+        font-weight: 700;
+        transform: scale(1.2);
+    }
+    
+    .nav ul li a:hover::before {
+        width: 100%;
+        left: 0;
+    }
+
+    @keyframes moveLogo {
+        0% { transform: scale(1) translate(0, 0); }
+        100% { 
+            transform: scale(0.4) translate(-115vw, -110vh);
+        }
+    }
+
+    .desktop { 
+        display: block; 
+    }
+
+    .tablet{
+        display: none;
+    }
+
+    .section {
+        padding: 3em;
+    }
+    
+    .video-horizontal{
+        width: 60%;
+    }
+
+    #unico{
+        width: 30%;
+    }
+footer{
+    font-size: 0.8em;
+}
+}
